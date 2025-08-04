@@ -72,7 +72,7 @@ const projects: Project[] = [
   {
     id: 'project-7',
     title: 'Online Chess Website',
-    description: 'Developed a website application to play chess with other people with Django as backend and Vue as frontend. Can take around 30 seconds initialy for requests to start working.',
+    description: 'Developed a website application to play chess with other people with Django as backend and Vue as frontend. Can take up to 30 seconds for the initial request to be answered.',
     image: 'fas fa-chess',
     technologies: ['Django', 'Vue', 'API REST', 'Websockets'],
     category: 'web',
