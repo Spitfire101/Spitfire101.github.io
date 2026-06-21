@@ -2,392 +2,250 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional portfolio of Diego Velasco Bayón" />
-    <meta name="keywords" content="computer science, software engineer, portfolio, data scientist" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Diego Velasco Bayón</title>
+    <meta name="description" content="Diego Velasco Bayón. Data Science and Machine Learning." />
     <meta name="author" content="Diego Velasco Bayón" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Diego Velasco Bayón - Portfolio" />
-    <meta property="og:description" content="Computer Science Student & Aspiring Data Scientist" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Diego Velasco Bayón" />
+    <meta property="og:description" content="Data Science and Machine Learning." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="[Your Website URL]" />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <title>Diego Velasco Bayón - Portfolio</title>
+
+    <link rel="preload" href="fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="#hero" class="nav-logo">
-          <span>D.V.B</span>
-        </a>
-        <ul class="nav-menu">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="nav-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
+    <div class="layout">
 
-    <!-- Main Content -->
-    <main>
-      <!-- Hero Section -->
-      <section id="hero" class="hero">
-        <div class="hero-container">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              <span class="greeting">Hello, I'm</span>
-              <span class="name">Diego Velasco Bayón</span>
-            </h1>
-            <p class="hero-subtitle">Computer Science Graduate & Aspiring Data Scientist</p>
-            <p class="hero-description">
-              Ambitious and diligent Computer Science graduate with a strong passion for Artificial Intelligence, specializing in Data Science, Machine Learning, and Deep Learning. A collaborative team player with excellent communication skills, fluent in both Spanish and English.
-            </p>
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">
-                <i class="fas fa-code"></i>
-                View Projects
-              </a>
-              <a href="#contact" class="btn btn-secondary">
-                <i class="fas fa-envelope"></i>
-                Contact Me
-              </a>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="code-animation">
-              <div class="code-line"></div>
-              <div class="code-line"></div>
-              <div class="code-line"></div>
-              <div class="code-line"></div>
-            </div>
-          </div>
-        </div>
-        <div class="scroll-indicator">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </section>
+      <!-- ===== Sidebar (persistent identity + nav) ===== -->
+      <aside class="sidebar">
+        <h1 class="name" id="name">Diego Velasco Bayón</h1>
+        <p class="role">Data Science · Machine Learning</p>
 
-      <!-- About Section -->
-      <section id="about" class="about">
-        <div class="container">
-          <h2 class="section-title">About Me</h2>
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                I'm a passionate Computer Science student with a deep fascination for technology and AI and its potential to solve real-world problems. My journey in this field began with curiosity and has evolved into a genuine love for creating elegant, efficient solutions.
-              </p>
-              <p>
-                My primary interests lie in <strong>AI, ML and Data Science</strong>, where I enjoy exploring the intersection of theoretical knowledge and practical application. I thrive on challenges that push me to learn new technologies and think creatively.
-              </p>
-              <p>
-                When I'm not coding, you'll find me playing padel, listening to music and learning about psychology, macroeconomics and even more technology. I believe these activities complement my technical work by fostering competitiveness, strategic thinking, and a well-rounded perspective.
-              </p>
-              <p>
-                I'm a <strong>collaborative team player</strong> who values <strong>attention to detail</strong> and approaches every project with a <strong>problem-solving mindset</strong>. I'm always eager to learn from others and contribute to meaningful projects.
-              </p>
-            </div>
-            <div class="about-visual">
-              <div class="profile-card">
-                <div class="profile-image">
-                  <!-- Placeholder for professional photo -->
-                  <i class="fas fa-user"></i>
-                </div>
-                <div class="profile-stats">
-                  <div class="stat">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Projects</span>
-                  </div>
-                  <div class="stat">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Languages</span>
-                  </div>
-                  <div class="stat">
-                    <span class="stat-number">3+</span>
-                    <span class="stat-label">Years</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <nav class="nav" aria-label="Sections">
+          <a href="#about" data-section="about">About</a>
+          <a href="#experience" data-section="experience">Experience</a>
+          <a href="#projects" data-section="projects">Projects</a>
+          <a href="#education" data-section="education">Education</a>
+        </nav>
+      </aside>
 
-      <!-- Skills Section -->
-      <section id="skills" class="skills">
-        <div class="container">
-          <h2 class="section-title">Technical Skills</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3><i class="fas fa-code"></i> Languages</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">C</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Assembly</span>
-                <span class="skill-tag">C#</span>
-                <span class="skill-tag">Rust</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">.NET</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">VS Code</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Neo4j</span>
-                <span class="skill-tag">Redis</span>
-              </div>
-            </div>
-            <div class="skill-category">
-              <h3><i class="fas fa-lightbulb"></i> Concepts</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Data Structures</span>
-                <span class="skill-tag">Algorithms</span>
-                <span class="skill-tag">Low-level programming</span>
-                <span class="skill-tag">AI</span>
-                <span class="skill-tag">Agile</span>
-                <span class="skill-tag">Database Design</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">Software Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- ===== Content (one section visible at a time) ===== -->
+      <main class="content">
 
-      <!-- Projects Section -->
-      <section id="projects" class="projects">
-        <div class="container">
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="projects-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="ai">AI/ML</button>
-            <button class="filter-btn" data-filter="low-level">Low-level</button>
-            <button class="filter-btn" data-filter="web">Web Dev</button>
-            <button class="filter-btn" data-filter="other">Other</button>
-          </div>
-          <div class="projects-grid">
-            <!-- Project cards will be generated dynamically -->
-          </div>
-          <div class="projects-load-more">
-            <button class="btn btn-outline" id="load-more-projects">
-              <i class="fas fa-plus"></i>
-              Load More Projects
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="experience">
-        <div class="container">
-          <h2 class="section-title">Experience</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>Summer Internship</h3>
-                <h4>Warpcom Services</h4>
-                <p class="timeline-date">
-                  <i class="fas fa-calendar"></i>
-                  Jul. 2023 - Sep. 2023
-                </p>
-                <p class="timeline-location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  Lisbon, Portugal
-                </p>
-                <ul class="timeline-achievements">
-                  <li>Warpcom is a known national leading tech solutions provider in Portugal</li>
-                  <li>Built compliance indicators for the HR department using Django</li>
-                  <li>Analysed, managed and queried SQL Server databases from clients</li>
-                  <li>Enhanced and automated data workflows via Excel VBA macros</li>
-                </ul>
-                <div class="timeline-tech">
-                  <span class="tech-tag">Django</span>
-                  <span class="tech-tag">MS SQL Server</span>
-                  <span class="tech-tag">Microsoft Excel</span>
-                </div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>Summer Internship</h3>
-                <h4>Algotech</h4>
-                <p class="timeline-date">
-                  <i class="fas fa-calendar"></i>
-                  Jul. 2022 - Sep. 2022
-                </p>
-                <p class="timeline-location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  Prague, Czech Republic
-                </p>
-                <ul class="timeline-achievements">
-                  <li>Algotech is a full-service IT solutions provider</li>
-                  <li>Developed a .NET application in C# for internal data visualization</li>
-                  <li>Focused on Windows desktop development, OOP principles and UI design</li>
-                </ul>
-                <div class="timeline-tech">
-                  <span class="tech-tag">.NET Framework</span>
-                  <span class="tech-tag">C#</span>
-                  <span class="tech-tag">OOP</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education Section -->
-      <section id="education" class="education">
-        <div class="container">
-          <h2 class="section-title">Education</h2>
-          <div class="education-content">
-            <div class="education-card">
-              <div class="education-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="education-info">
-                <h3>Graduate in Computer Science</h3>
-                <h4>Universidad Autónoma de Madrid (UAM)</h4>
-                <p class="education-location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  Madrid, Spain
-                </p>
-                <p class="education-date">
-                  <i class="fas fa-calendar"></i>
-                  2021 - 2025
-                </p>
-                <div class="education-details">
-                  <p><strong>Average Grade:</strong> 7.4/10</p>
-                  <p><strong>Relevant Coursework:</strong> Linear Algebra, Calculus, Probability and Statistics, Algorithms and Advanced Data Structures, Software Design and Engineering, Operating Systems, Database Fundamentals, Computer Networks, Artificial Intelligence, Neurocomputing</p>
-                  <p><strong>Thesis:</strong> Modelling and Optimizing Law Enforcement Resources with Spanish National Police. Grade: 10/10</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="education-card">
-              <div class="education-icon">
-                <i class="fas fa-globe-americas"></i>
-              </div>
-              <div class="education-info">
-                <h3>Erasmus Exchange Semester</h3>
-                <h4>Norwegian University of Science and Technology (NTNU)</h4>
-                <p class="education-location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  Trondheim, Norway
-                </p>
-                <p class="education-date">
-                  <i class="fas fa-calendar"></i>
-                  Aug. 2024 - Dec. 2024
-                </p>
-                <div class="education-details">
-                  <p><strong>Courses:</strong> Parallel Computing, Applied Data Science, Security in Programming and Cryptography,
-Modern Machine Learning in Practice and Norwegian</p>
-                  <p><strong>Experiences:</strong> Played badminton, joined a choir, trained calisthenics and visited Lofoten Islands</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="education-card">
-              <div class="education-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <div class="education-info">
-                <h3>Applied Data Science Program</h3>
-                <h4>Zrive</h4>
-                <p class="education-location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  Online
-                </p>
-                <p class="education-date">
-                  <i class="fas fa-calendar"></i>
-                  Sep. 2023 - Dec. 2023
-                </p>
-                <div class="education-details">
-                  <p><strong>Info:</strong> Zrive Applied Data Science is a 13-week intensive program designed for high-performing university
-students and young professionals who want to launch their careers as Data Scientists.</p>
-                  <p><strong>Skills:</strong> Business Analytics, Statistics, Real-world Programming Projects</p>
-                  <p><strong>Projects:</strong> Collaborated with Komorebi AI to optimize olives recollection via predictions</p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <h2 class="section-title">Let's Connect!</h2>
-          <p class="contact-subtitle">
-            I'm always excited to discuss new opportunities, collaborate on interesting projects, or just have a conversation about technology.
+        <section id="about" class="panel">
+          <h2 class="eyebrow">About</h2>
+          <p>
+            Turning data into decisions. Currently with
+            <a href="https://www.whiteboxml.com" target="_blank" rel="noopener">WhiteboxML</a>,
+            embedded at <a class="nowrap" href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>.
           </p>
-          <div class="contact-content-centered">
-            <div class="contact-info">
-              <a href="mailto:diego.velasco.bayon@gmail.com" class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <span>diego.velasco.bayon@gmail.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/dvb03" target="_blank" class="contact-card">
-                <i class="fab fa-linkedin"></i>
-                <h3>LinkedIn</h3>
-                <span>Connect with me</span>
-              </a>
-              <a href="https://github.com/Spitfire101" target="_blank" class="contact-card">
-                <i class="fab fa-github"></i>
-                <h3>GitHub</h3>
-                <span>View my repositories</span>
-              </a>
+          <p>
+            I'm a Computer Engineering graduate with a deep fascination for AI and for turning it
+            into real products that work and serve a purpose. I care as much about the business
+            behind a problem as the model in front of it: my aim is always the optimal outcome for
+            the business, reached through data and machine learning rather than modelling for its
+            own sake.
+          </p>
+          <p>
+            I'm firmly pro-AI in how I build. I use AI coding tools every day, but I treat them as
+            exactly that, tools: I rely on taste, judgement and careful review to stay in control
+            of what I ship.
+          </p>
+          <p>
+            More than anything, I'm passionate about learning new things. I follow machine learning
+            and LLM research closely, and I'm just as happy going down a rabbit hole on technology,
+            macroeconomics, psychology, or whatever else has caught my curiosity.
+          </p>
+          <p>
+            Away from the screen I'm hopelessly addicted to padel and I love scuba diving. I'm
+            fluent in Spanish and English.
+          </p>
+          <p class="motto">"Whatever scares you, go do it." <span class="by">Derek Sivers</span></p>
+        </section>
+
+        <section id="experience" class="panel">
+          <h2 class="eyebrow">Experience</h2>
+
+          <div class="item">
+            <h3>Data Scientist · <span class="org">WhiteboxML</span> <span class="annot">now</span></h3>
+            <p class="meta">Sep 2025 – Present · Madrid, Spain</p>
+            <p>
+              Embedded on a small team building a production Customer Lifetime Value system for
+              <a href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>,
+              one of Europe's largest retail groups. The models feed a monthly process that flags
+              spending dips in loyal customers so the business can re-engage them.
+            </p>
+            <ul>
+              <li>Drive end-to-end <strong>LightGBM</strong> pipelines: rolling-window features over
+                customer and sales history, an RFM framework and careful leakage control, for annual
+                and quarterly spend split into per-category models.</li>
+              <li>Diagnosed a long-standing training failure (autoscaling evicting nodes mid-job,
+                which distributed LightGBM couldn't tolerate), unlocking training on the full dataset
+                of tens of millions of rows and a clear lift in metrics.</li>
+              <li>Co-led the migration from Databricks and Azure Data Lake to <strong>Snowflake</strong>,
+                rebuilding the codebase into a typed, node-based ETL framework with faster runtimes.</li>
+              <li>Started as a data engineer on a spin-off team: web scraping at scale, data QA and
+                orchestration with Airflow over PostgreSQL and ClickHouse.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">Snowflake</span>
+              <span class="tag">Databricks</span><span class="tag">Spark</span><span class="tag">Airflow</span>
+              <span class="tag">ClickHouse</span><span class="tag">SQL</span>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 Diego Velasco Bayón. Built with ❤️ and vibe coding ;)</p>
-        <div class="footer-links">
-          <a href="#hero">Back to Top</a>
-        </div>
-      </div>
-    </footer>
+          <div class="item">
+            <h3>Summer Internship · <span class="org">Warpcom Services</span></h3>
+            <p class="meta">Jul 2023 – Sep 2023 · Lisbon, Portugal</p>
+            <p>
+              Spent the summer at one of Portugal's leading tech solutions providers, my first time
+              working hands-on with enterprise clients and their data. I built HR compliance
+              indicators in Django, analysed and queried client SQL Server databases, and automated
+              recurring reporting with Excel VBA, taking a good chunk of manual work off the team's
+              plate.
+            </p>
+            <div class="tags">
+              <span class="tag">Django</span><span class="tag">SQL Server</span><span class="tag">Excel VBA</span>
+            </div>
+          </div>
 
-    <script type="module" src="/src/main.ts"></script>
+          <div class="item">
+            <h3>Summer Internship · <span class="org">Algotech</span></h3>
+            <p class="meta">Jul 2022 – Sep 2022 · Prague, Czech Republic</p>
+            <p>
+              My first professional experience abroad, at a full-service IT provider. I developed a
+              .NET desktop application in C# for internal data visualization, building it from design
+              through to a clean, usable UI, and got comfortable with object-oriented design and with
+              shipping a tool that colleagues actually used day to day.
+            </p>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">.NET</span><span class="tag">OOP</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="panel">
+          <h2 class="eyebrow">Projects</h2>
+          <p class="lead">A mix of university, professional and personal work.</p>
+
+          <p class="group-label">AI / Machine Learning</p>
+
+          <div class="project">
+            <h3>Optimizing Spanish National Police Resources <span class="annot">honorable mention</span></h3>
+            <p>
+              Bachelor's thesis: a hybrid approach to allocating police officers across Spain's
+              regions, built on real crime data. Graded 10/10 with an honorable mention.
+            </p>
+            <div class="tags"><span class="tag">Scikit-Learn</span><span class="tag">LightGBM</span><span class="tag">XGBoost</span><span class="tag">pandas</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Vowel Sound Classification with Neural Networks</h3>
+            <p>Classified vowels as nasal or oral using TensorFlow/Keras and modern techniques.</p>
+            <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">UMAP</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Neural Network Library</h3>
+            <p>A neural network library built from scratch in Python and validated across datasets.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span></div>
+          </div>
+
+          <p class="group-label">Web &amp; Mobile</p>
+
+          <div class="project">
+            <h3>STIL <span class="annot">in progress</span></h3>
+            <p>
+              Co-building a free, social gym-tracking app with community features and a touch of
+              gamification, cross-platform for iOS and Android on a Django backend. More soon.
+            </p>
+            <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Django</span><span class="tag">Railway</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Online Chess
+              <span class="links">(<a href="https://psi-pr4-vue-wwhp.onrender.com/" target="_blank" rel="noopener">live demo</a>)</span></h3>
+            <p>A web app to play chess in real time, with a Django backend and a Vue frontend.</p>
+            <div class="tags"><span class="tag">Django</span><span class="tag">Vue</span><span class="tag">WebSockets</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Gym Management App</h3>
+            <p>A full-stack Java system for gyms to represent and manage their business.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Full-Stack</span></div>
+          </div>
+
+          <p class="group-label">Data &amp; Systems</p>
+
+          <div class="project">
+            <h3>Distributed Voting System</h3>
+            <p>
+              A Bitcoin-like distributed simulation of miners, checkers and a monitor,
+              synchronizing via shared memory, pipes and message queues.
+            </p>
+            <div class="tags"><span class="tag">C</span><span class="tag">Operating Systems</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Concurrent Web Engine in C</h3>
+            <p>A multi-threaded HTTP/1.1 server in C supporting most methods, image serving and code execution.</p>
+            <div class="tags"><span class="tag">C</span><span class="tag">HTTP</span><span class="tag">Concurrency</span></div>
+          </div>
+
+          <div class="project">
+            <h3>Enhanced Segmented RISC-V</h3>
+            <p>A segmented RISC-V processor with data forwarding, a hazard-detection unit and branch prediction.</p>
+            <div class="tags"><span class="tag">VHDL</span><span class="tag">Assembly</span></div>
+          </div>
+        </section>
+
+        <section id="education" class="panel">
+          <h2 class="eyebrow">Education</h2>
+
+          <div class="item">
+            <h3>Computer Engineering · <span class="org">Universidad Autónoma de Madrid</span></h3>
+            <p class="meta">2021 – 2025 · Madrid, Spain</p>
+            <p>
+              Coursework across algorithms, AI, neurocomputing, operating systems and databases.
+              Thesis graded 10/10 with an honorable mention.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Exchange Semester · <span class="org">NTNU</span></h3>
+            <p class="meta">Aug 2024 – Dec 2024 · Trondheim, Norway</p>
+            <p>Parallel computing, applied data science, security and cryptography, and modern ML in practice.</p>
+          </div>
+
+          <div class="item">
+            <h3>Applied Data Science Program · <span class="org">Zrive</span></h3>
+            <p class="meta">Sep 2023 – Dec 2023 · Online</p>
+            <p>A 13-week intensive program; collaborated with Komorebi AI on predicting the optimal olive harvest.</p>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ===== Footer (full width: credit left, social icons right) ===== -->
+      <footer class="foot">
+        <span class="credit">© 2026 Diego Velasco Bayón</span>
+        <span class="socials">
+          <a href="mailto:diego.velasco.bayon@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/dvb03" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.25 8.02h4.5V24H.25zM8.34 8.02h4.31v2.18h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.1c0-1.69-.03-3.86-2.35-3.86-2.36 0-2.72 1.84-2.72 3.74V24h-4.5z"/></svg>
+          </a>
+          <a href="https://github.com/Spitfire101" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+          </a>
+        </span>
+      </footer>
+
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

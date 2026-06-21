@@ -1,0 +1,250 @@
+/* =========================================================================
+   Diego Velasco Bayón, portfolio
+   Minimal / editorial. Dark navy, off-white text, single green accent.
+   Left sidebar identity + nav; content shows one section at a time.
+   Type: Geist Sans (prose + name) · Geist Mono (metadata) · Geist Pixel (footer)
+   ========================================================================= */
+
+/* ---- Fonts (self-hosted, OFL, see fonts/LICENSE.txt) ------------------- */
+@font-face {
+  font-family: "Geist"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("fonts/Geist-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("fonts/Geist-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("fonts/Geist-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("fonts/GeistMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist Mono"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("fonts/GeistMono-Medium.woff2") format("woff2");
+}
+@font-face { font-family: "Geist Pixel Square"; src: url("fonts/GeistPixel-Square.woff2") format("woff2"); font-display: swap; }
+
+/* ---- Tokens ------------------------------------------------------------- */
+:root {
+  --bg:        #141b26;   /* deep slate-navy, not pure black */
+  --text:      #e7ebf2;   /* off-white */
+  --soft:      #c2cad7;   /* body prose */
+  --muted:     #858f9f;   /* metadata, dates */
+  --faint:     rgba(231, 235, 242, 0.10);
+  --green:     #5fd38a;   /* accent only */
+  --green-dim: #3f9c66;
+
+  --f-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* ---- Reset / base ------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; font-size: 125.5829%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-sans);
+  font-size: 0.9375rem;
+  line-height: 1.66;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+.nowrap { white-space: nowrap; }
+
+/* ---- Layout: sidebar + content + footer -------------------------------- */
+.layout {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+  align-items: start;
+}
+.sidebar { position: sticky; top: clamp(2.5rem, 6vw, 5rem); }
+
+/* ---- Identity ----------------------------------------------------------- */
+.name {
+  font-family: var(--f-sans);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text);
+}
+.role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0.85rem 0 0;
+  line-height: 1.45;
+}
+
+/* ---- Nav (independent sections; green dot + green text when active) ---- */
+.nav {
+  margin-top: 1.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: max-content;
+  color: var(--muted);
+  background: none;
+  transition: none;
+}
+.nav a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  flex: none;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--green); }
+.nav a.active::before { background: var(--green); }
+
+/* ---- Links: green wipe-in underline ------------------------------------ */
+a {
+  color: var(--text);
+  text-decoration: none;
+  background-image: linear-gradient(var(--green), var(--green));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  transition: background-size .28s cubic-bezier(.2,.7,.3,1), color .2s ease;
+}
+a:hover, a:focus-visible { color: var(--green); background-size: 100% 1.5px; }
+a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 2px; }
+
+/* ---- Content panels (one at a time) ------------------------------------ */
+.content { min-width: 0; min-height: 16rem; }
+.panel { display: none; }
+.panel.active { display: block; }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.5rem;
+}
+.eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--faint); }
+
+.content p { color: var(--soft); margin: 0 0 0.9rem; font-size: 0.8rem; }
+.content p:last-child { margin-bottom: 0; }
+.lead { color: var(--muted) !important; font-size: 0.82rem !important; margin-top: -0.5rem !important; }
+
+/* motto */
+.motto {
+  font-style: italic;
+  color: var(--text) !important;
+  border-left: 2px solid var(--green);
+  padding-left: 0.8rem;
+  margin-top: 1.4rem !important;
+}
+.motto .by { font-style: normal; color: var(--muted); font-size: 0.85em; margin-left: 0.6rem; }
+
+/* ---- Editorial items (experience, education) --------------------------- */
+.item { margin-top: 2.2rem; }
+.item:first-of-type { margin-top: 0; }
+.item h3 { font-size: 0.86rem; font-weight: 600; margin: 0; line-height: 1.4; }
+.item .org { font-weight: 500; }
+.item .meta {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0.22rem 0 0.6rem;
+  letter-spacing: 0.02em;
+}
+.item ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--soft); font-size: 0.8rem; }
+.item li { margin: 0.3rem 0; }
+.item li::marker { color: var(--green-dim); }
+
+/* tech tags */
+.tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  border: 1px solid var(--faint);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
+}
+
+/* ---- Inline green annotations ------------------------------------------ */
+.annot {
+  font-family: var(--f-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  vertical-align: 0.15em;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+
+/* ---- Projects ----------------------------------------------------------- */
+.group-label {
+  font-family: var(--f-mono);
+  font-size: 0.8rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green) !important;
+  margin: 2.2rem 0 1rem !important;
+}
+.project { margin-top: 1.5rem; }
+.project h3 { font-size: 0.86rem; font-weight: 600; margin: 0 0 0.3rem; }
+.project h3 .links { font-family: var(--f-mono); font-size: 0.7rem; font-weight: 400; color: var(--muted); }
+
+/* ---- Footer (full width: credit left, social icons right) -------------- */
+.foot {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
+.credit {
+  font-family: "Geist Pixel Square", var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.socials { display: inline-flex; align-items: center; gap: 0.9rem; }
+.socials a { color: var(--muted); background: none; line-height: 0; }
+.socials a:hover, .socials a:focus-visible { color: var(--green); }
+.socials svg { width: 13px; height: 13px; display: block; }
+
+/* ---- Responsive: stack on small screens -------------------------------- */
+@media (max-width: 48rem) {
+  .layout { grid-template-columns: 1fr; gap: 2rem; }
+  .sidebar { position: static; }
+  .nav { margin-top: 1.5rem; flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1.3rem; }
+}
