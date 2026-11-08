@@ -219,7 +219,8 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
   letter-spacing: 0.02em;
 }
 .item ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--soft); font-size: 0.83rem; }
-.item p { margin-bottom: 0.9rem; }   /* keep entries tight; open spacing is for prose */
+/* keep entries tight (text sits close to its tags); open spacing is for prose */
+.item p, .project p { margin-bottom: 0.9rem; }
 .item li { margin: 0.45rem 0; }
 .item li::marker { color: var(--muted); }
 
