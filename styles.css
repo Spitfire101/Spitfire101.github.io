@@ -29,14 +29,14 @@
 
 /* ---- Tokens ------------------------------------------------------------- */
 :root {
-  /* "Ink + green": contrast vs --bg: text 15.7, soft 11.1, muted 5.7, green 9.7 */
+  /* "Ink + green": contrast vs --bg: text 15.7, soft 11.1, muted 5.7, green 11.0 */
   --bg:        #141414;   /* neutral near-black */
   --text:      #ededeb;   /* soft white */
   --soft:      #c9c9c5;   /* body prose */
   --muted:     #8f8f8b;   /* metadata, dates */
   --faint:     rgba(237, 237, 235, 0.10);
-  --green:     #6fd08e;   /* accent only */
-  --green-dim: #4c9466;
+  --green:     #4be283;   /* accent only */
+  --green-dim: #35a85e;
 
   --f-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;

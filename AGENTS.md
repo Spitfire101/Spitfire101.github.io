@@ -13,7 +13,7 @@ via GitHub Pages. A single-page, minimal/editorial site presenting his CV.
   sidebar (name, role, nav), content area that shows **one section at a time**,
   generous whitespace, no cards, shadows or boxed chips.
 - **Palette, "Ink + green":** neutral near-black ground (`#141414`), soft white text
-  (`#ededeb`), clear green accent (`#6fd08e`). Deliberately *not* navy, and no orange/parchment
+  (`#ededeb`), vivid green accent (`#4be283`). Deliberately *not* navy, and no orange/parchment
   tint (an earlier warm "ink + sage" version was replaced for that reason).
   All colours are CSS variables on `:root` in `styles.css` (contrast noted there). Dark only:
   a light mode was tried and deliberately removed.
