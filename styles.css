@@ -103,28 +103,29 @@ body {
   font-size: 0.82rem;
 }
 .nav a {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
   width: max-content;
   color: var(--muted);
   background: none;
   transition: none;
 }
+/* the dot hangs in the gutter, so it never shifts the labels */
 .nav a::before {
   content: "";
+  position: absolute;
+  left: calc(-6px - 0.55rem);
+  top: 50%;
   width: 6px;
   height: 6px;
+  margin-top: -3px;
   border-radius: 50%;
   background: transparent;
-  flex: none;
 }
 .nav a:hover { color: var(--text); }
 .nav a.active { color: var(--green); }
 .nav a.active::before { background: var(--green); }
-@media (min-width: 48.01rem) {
-  .nav a { margin-left: calc(-6px - 0.55rem); }
-}
 
 /* ---- Links: green wipe-in underline ------------------------------------ */
 a {
@@ -146,7 +147,7 @@ a:hover, a:focus-visible { color: var(--green); background-size: 100% 1.5px; }
 a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 2px; }
 
 /* ---- Content panels (one at a time) ------------------------------------ */
-.content { min-width: 0; min-height: 16rem; max-width: 33rem; }
+.content { min-width: 0; min-height: 16rem; max-width: 30rem; }
 /* Without JS every panel shows (stacked); with JS one at a time. */
 .js .panel { display: none; }
 .js .panel.active { display: block; }
@@ -168,7 +169,8 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 }
 .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--faint); }
 
-.content p { color: var(--soft); margin: 0 0 0.9rem; font-size: 0.83rem; }
+.content p { color: var(--soft); margin: 0 0 1.35rem; font-size: 0.83rem; }
+#panel-about .eyebrow + p { color: var(--text); }
 .content p:last-child { margin-bottom: 0; }
 .lead { color: var(--muted) !important; font-size: 0.82rem !important; margin-top: -0.5rem !important; }
 
@@ -217,11 +219,12 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
   letter-spacing: 0.02em;
 }
 .item ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--soft); font-size: 0.83rem; }
-.item li { margin: 0.3rem 0; }
+.item p { margin-bottom: 0.9rem; }   /* keep entries tight; open spacing is for prose */
+.item li { margin: 0.45rem 0; }
 .item li::marker { color: var(--muted); }
 
 /* tech tags */
-.tags { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.15rem 1.1rem; }
+.tags { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.15rem 1.1rem; }
 .tag {
   font-family: var(--f-mono);
   font-size: 0.68rem;
@@ -283,6 +286,12 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 @media (max-width: 48rem) {
   .layout { grid-template-columns: 1fr; gap: 2rem; }
   .sidebar { position: static; }
-  .nav { margin-top: 1.5rem; flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1.3rem; }
-  .nav a::before { display: none; }
+  /* one row, spread edge to edge; type scales down on narrow phones */
+  .nav {
+    margin-top: 1.5rem; flex-direction: row; flex-wrap: wrap;
+    justify-content: space-between; gap: 0.4rem 0;
+    font-size: clamp(0.66rem, 3.6vw, 0.78rem);
+  }
+  .nav a { padding-block: 0.35rem; }
+  .nav a::before { width: 5px; height: 5px; margin-top: -2.5px; left: calc(-5px - 0.25rem); }
 }
