@@ -1,6 +1,6 @@
 /* =========================================================================
    Diego Velasco Bayón, portfolio
-   Minimal / editorial. Warm ink ground, parchment text, single sage accent.
+   Minimal / editorial. Neutral ink ground, soft white text, single green accent.
    Left sidebar identity + nav; content shows one section at a time.
    Type: Geist Sans (prose + name) · Geist Mono (metadata, nav, contact)
    ========================================================================= */
@@ -29,14 +29,14 @@
 
 /* ---- Tokens ------------------------------------------------------------- */
 :root {
-  /* "Ink + sage": contrast vs --bg: text 14.9, soft 10.5, muted 5.5, green 7.9 */
-  --bg:        #151412;   /* warm near-black */
-  --text:      #ece7dc;   /* parchment */
-  --soft:      #c9c3b6;   /* body prose */
-  --muted:     #928c80;   /* metadata, dates */
-  --faint:     rgba(236, 231, 220, 0.10);
-  --green:     #86b592;   /* sage, accent only */
-  --green-dim: #5f8a6b;
+  /* "Ink + green": contrast vs --bg: text 15.7, soft 11.1, muted 5.7, green 9.7 */
+  --bg:        #141414;   /* neutral near-black */
+  --text:      #ededeb;   /* soft white */
+  --soft:      #c9c9c5;   /* body prose */
+  --muted:     #8f8f8b;   /* metadata, dates */
+  --faint:     rgba(237, 237, 235, 0.10);
+  --green:     #6fd08e;   /* accent only */
+  --green-dim: #4c9466;
 
   --f-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
