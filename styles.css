@@ -1,8 +1,8 @@
 /* =========================================================================
    Diego Velasco Bayón, portfolio
-   Minimal / editorial. Dark navy, off-white text, single green accent.
+   Minimal / editorial. Warm ink ground, parchment text, single sage accent.
    Left sidebar identity + nav; content shows one section at a time.
-   Type: Geist Sans (prose + name) · Geist Mono (metadata) · Geist Pixel (footer)
+   Type: Geist Sans (prose + name) · Geist Mono (metadata, nav, contact)
    ========================================================================= */
 
 /* ---- Fonts (self-hosted, OFL, see fonts/LICENSE.txt) ------------------- */
@@ -26,20 +26,21 @@
   font-family: "Geist Mono"; font-style: normal; font-weight: 500; font-display: swap;
   src: url("fonts/GeistMono-Medium.woff2") format("woff2");
 }
-@font-face { font-family: "Geist Pixel Square"; src: url("fonts/GeistPixel-Square.woff2") format("woff2"); font-display: swap; }
 
 /* ---- Tokens ------------------------------------------------------------- */
 :root {
-  --bg:        #141b26;   /* deep slate-navy, not pure black */
-  --text:      #e7ebf2;   /* off-white */
-  --soft:      #c2cad7;   /* body prose */
-  --muted:     #858f9f;   /* metadata, dates */
-  --faint:     rgba(231, 235, 242, 0.10);
-  --green:     #5fd38a;   /* accent only */
-  --green-dim: #3f9c66;
+  /* "Ink + sage": contrast vs --bg: text 14.9, soft 10.5, muted 5.5, green 7.9 */
+  --bg:        #151412;   /* warm near-black */
+  --text:      #ece7dc;   /* parchment */
+  --soft:      #c9c3b6;   /* body prose */
+  --muted:     #928c80;   /* metadata, dates */
+  --faint:     rgba(236, 231, 220, 0.10);
+  --green:     #86b592;   /* sage, accent only */
+  --green-dim: #5f8a6b;
 
   --f-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
 }
 
 /* ---- Reset / base ------------------------------------------------------- */
@@ -84,11 +85,13 @@ body {
   color: var(--text);
 }
 .role {
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin: 0.85rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0.35rem 0 0;
   line-height: 1.45;
 }
+
 
 /* ---- Nav (independent sections; green dot + green text when active) ---- */
 .nav {
@@ -119,6 +122,9 @@ body {
 .nav a:hover { color: var(--text); }
 .nav a.active { color: var(--green); }
 .nav a.active::before { background: var(--green); }
+@media (min-width: 48.01rem) {
+  .nav a { margin-left: calc(-6px - 0.55rem); }
+}
 
 /* ---- Links: green wipe-in underline ------------------------------------ */
 a {
@@ -131,12 +137,22 @@ a {
   transition: background-size .28s cubic-bezier(.2,.7,.3,1), color .2s ease;
 }
 a:hover, a:focus-visible { color: var(--green); background-size: 100% 1.5px; }
+.content p a {
+  background-image: linear-gradient(var(--green-dim), var(--green-dim)), linear-gradient(var(--green), var(--green));
+  background-size: 100% 1px, 0% 1.5px;
+  background-position: 0 100%, 0 100%;
+}
+.content p a:hover, .content p a:focus-visible { background-size: 100% 1px, 100% 1.5px; }
 a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 2px; }
 
 /* ---- Content panels (one at a time) ------------------------------------ */
-.content { min-width: 0; min-height: 16rem; }
-.panel { display: none; }
-.panel.active { display: block; }
+.content { min-width: 0; min-height: 16rem; max-width: 33rem; }
+/* Without JS every panel shows (stacked); with JS one at a time. */
+.js .panel { display: none; }
+.js .panel.active { display: block; }
+.panel + .panel { margin-top: 3.5rem; }
+.js .panel + .panel { margin-top: 0; }
+.eyebrow:focus { outline: none; }
 
 .eyebrow {
   font-family: var(--f-mono);
@@ -152,7 +168,7 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 }
 .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--faint); }
 
-.content p { color: var(--soft); margin: 0 0 0.9rem; font-size: 0.8rem; }
+.content p { color: var(--soft); margin: 0 0 0.9rem; font-size: 0.83rem; }
 .content p:last-child { margin-bottom: 0; }
 .lead { color: var(--muted) !important; font-size: 0.82rem !important; margin-top: -0.5rem !important; }
 
@@ -167,10 +183,32 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 .motto .by { font-style: normal; color: var(--muted); font-size: 0.85em; margin-left: 0.6rem; }
 
 /* ---- Editorial items (experience, education) --------------------------- */
-.item { margin-top: 2.2rem; }
+.item { margin-top: 2.8rem; }
 .item:first-of-type { margin-top: 0; }
 .item h3 { font-size: 0.86rem; font-weight: 600; margin: 0; line-height: 1.4; }
 .item .org { font-weight: 500; }
+.item .via { font-weight: 500; white-space: nowrap; }
+.item .via .arrow { color: var(--muted); font-weight: 400; margin-right: 0.15em; }
+
+/* sub-roles inside one employer (e.g. client engagements) */
+.sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.5rem 0 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+}
+.sub .aside { font-weight: 400; color: var(--muted); }
+.sub .when {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
 .item .meta {
   font-family: var(--f-mono);
   font-size: 0.72rem;
@@ -178,19 +216,16 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
   margin: 0.22rem 0 0.6rem;
   letter-spacing: 0.02em;
 }
-.item ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--soft); font-size: 0.8rem; }
+.item ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--soft); font-size: 0.83rem; }
 .item li { margin: 0.3rem 0; }
-.item li::marker { color: var(--green-dim); }
+.item li::marker { color: var(--muted); }
 
 /* tech tags */
-.tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tags { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.15rem 1.1rem; }
 .tag {
   font-family: var(--f-mono);
   font-size: 0.68rem;
   color: var(--muted);
-  border: 1px solid var(--faint);
-  border-radius: 4px;
-  padding: 0.1rem 0.45rem;
   white-space: nowrap;
 }
 
@@ -209,12 +244,13 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 /* ---- Projects ----------------------------------------------------------- */
 .group-label {
   font-family: var(--f-mono);
-  font-size: 0.8rem !important;
-  letter-spacing: 0.12em;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--green) !important;
-  margin: 2.2rem 0 1rem !important;
+  color: var(--muted) !important;
+  margin: 2.8rem 0 1.2rem !important;
 }
+.group-label:first-of-type { margin-top: 0 !important; }
 .project { margin-top: 1.5rem; }
 .project h3 { font-size: 0.86rem; font-weight: 600; margin: 0 0 0.3rem; }
 .project h3 .links { font-family: var(--f-mono); font-size: 0.7rem; font-weight: 400; color: var(--muted); }
@@ -222,7 +258,7 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
 /* ---- Footer (full width: credit left, social icons right) -------------- */
 .foot {
   grid-column: 1 / -1;
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding-top: 1.4rem;
   border-top: 1px solid var(--faint);
   display: flex;
@@ -232,19 +268,21 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-r
   gap: 0.8rem 1.2rem;
 }
 .credit {
-  font-family: "Geist Pixel Square", var(--f-mono);
+  font-family: var(--f-mono);
   font-size: 0.68rem;
   letter-spacing: 0.02em;
   color: var(--muted);
 }
-.socials { display: inline-flex; align-items: center; gap: 0.9rem; }
-.socials a { color: var(--muted); background: none; line-height: 0; }
+
+.socials { display: inline-flex; align-items: center; gap: 0.4rem; }
+.socials a { color: var(--muted); background: none; line-height: 0; padding: 0.35rem; }
 .socials a:hover, .socials a:focus-visible { color: var(--green); }
-.socials svg { width: 13px; height: 13px; display: block; }
+.socials svg { width: 14px; height: 14px; display: block; }
 
 /* ---- Responsive: stack on small screens -------------------------------- */
 @media (max-width: 48rem) {
   .layout { grid-template-columns: 1fr; gap: 2rem; }
   .sidebar { position: static; }
   .nav { margin-top: 1.5rem; flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1.3rem; }
+  .nav a::before { display: none; }
 }

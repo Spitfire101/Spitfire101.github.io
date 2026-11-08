@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Diego Velasco Bayón</title>
-    <meta name="description" content="Diego Velasco Bayón. Data Science and Machine Learning." />
+    <meta name="description" content="Diego Velasco Bayón, Data Scientist at WhiteboxML, embedded at El Corte Inglés. Machine learning for customer value and loyalty." />
     <meta name="author" content="Diego Velasco Bayón" />
 
     <!-- Open Graph -->
@@ -13,12 +13,16 @@
     <meta property="og:description" content="Data Science and Machine Learning." />
     <meta property="og:type" content="website" />
 
+    <meta property="og:url" content="https://spitfire101.github.io/" />
+    <link rel="canonical" href="https://spitfire101.github.io/" />
+    <meta name="theme-color" content="#151412" />
+    <script>document.documentElement.classList.add("js");</script>
+
     <link rel="preload" href="fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="layout">
-
       <!-- ===== Sidebar (persistent identity + nav) ===== -->
       <aside class="sidebar">
         <h1 class="name" id="name">Diego Velasco Bayón</h1>
@@ -33,26 +37,26 @@
       </aside>
 
       <!-- ===== Content (one section visible at a time) ===== -->
-      <main class="content">
+      <main class="content" id="main">
 
-        <section id="about" class="panel">
-          <h2 class="eyebrow">About</h2>
+        <section id="panel-about" class="panel" data-section="about">
+          <h2 class="eyebrow" tabindex="-1">About</h2>
           <p>
-            Turning data into decisions. Currently with
-            <a href="https://www.whiteboxml.com" target="_blank" rel="noopener">WhiteboxML</a>,
-            embedded at <a class="nowrap" href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>.
+            Data scientist building customer value and loyalty models for
+            <a class="nowrap" href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>,
+            through <a href="https://www.whiteboxml.com" target="_blank" rel="noopener">WhiteboxML</a>.
           </p>
           <p>
-            I'm a Computer Engineering graduate with a deep fascination for AI and for turning it
-            into real products that work and serve a purpose. I care as much about the business
-            behind a problem as the model in front of it: my aim is always the optimal outcome for
-            the business, reached through data and machine learning rather than modelling for its
-            own sake.
+            I'm a Computer Engineering graduate who came to this field through a fascination with
+            AI and stayed for the part where it has to work in production. I care as much about the
+            business behind a problem as the model in front of it: the goal is the best outcome for
+            the business, reached through data and machine learning, not modelling for its own sake.
           </p>
           <p>
-            I'm firmly pro-AI in how I build. I use AI coding tools every day, but I treat them as
-            exactly that, tools: I rely on taste, judgement and careful review to stay in control
-            of what I ship.
+            AI agents are part of every stage of how I work: research, weighing up design
+            decisions, implementation and analysis. I take the workflow itself seriously and keep
+            refining it. What I don't hand over is judgement: technical criteria, taste and the
+            final call.
           </p>
           <p>
             More than anything, I'm passionate about learning new things. I follow machine learning
@@ -66,20 +70,34 @@
           <p class="motto">"Whatever scares you, go do it." <span class="by">Derek Sivers</span></p>
         </section>
 
-        <section id="experience" class="panel">
-          <h2 class="eyebrow">Experience</h2>
+        <section id="panel-experience" class="panel" data-section="experience">
+          <h2 class="eyebrow" tabindex="-1">Experience</h2>
 
           <div class="item">
-            <h3>Data Scientist · <span class="org">WhiteboxML</span> <span class="annot">now</span></h3>
+            <h3>Data Scientist · <span class="org">WhiteboxML</span> <span class="via"><span class="arrow" aria-hidden="true">→</span> El Corte Inglés</span> <span class="annot">now</span></h3>
             <p class="meta">Sep 2025 – Present · Madrid, Spain</p>
             <p>
-              Embedded on a small team building a production Customer Lifetime Value system for
-              <a href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>,
-              one of Europe's largest retail groups. The models feed a monthly process that flags
-              spending dips in loyal customers so the business can re-engage them.
+              WhiteboxML is a data science consultancy. Since late 2025 I've been embedded full-time,
+              on site, at <a href="https://www.elcorteingles.es" target="_blank" rel="noopener">El Corte Inglés</a>,
+              Europe's largest department-store group, working day to day in their Personalisation team.
+            </p>
+
+            <h4 class="sub">Loyalty missions <span class="when">Nov 2026 – Present</span></h4>
+            <p>
+              Chosen for a new, high-profile loyalty program in which customers earn points by
+              completing personalised missions. I split my time between the multi-armed bandit that
+              sets how much extra spend each mission asks of a customer, and the models that predict
+              the base spend it builds on, after co-defining the mission data contract with the
+              platform team.
+            </p>
+
+            <h4 class="sub">Customer Lifetime Value <span class="when">Nov 2025 – Nov 2026</span></h4>
+            <p>
+              A production CLV system whose predictions feed a monthly process that flags spending
+              dips in loyal customers so the business can re-engage them.
             </p>
             <ul>
-              <li>Drive end-to-end <strong>LightGBM</strong> pipelines: rolling-window features over
+              <li>Built end-to-end <strong>LightGBM</strong> pipelines: rolling-window features over
                 customer and sales history, an RFM framework and careful leakage control, for annual
                 and quarterly spend split into per-category models.</li>
               <li>Diagnosed a long-standing training failure (autoscaling evicting nodes mid-job,
@@ -87,14 +105,24 @@
                 of tens of millions of rows and a clear lift in metrics.</li>
               <li>Co-led the migration from Databricks and Azure Data Lake to <strong>Snowflake</strong>,
                 rebuilding the codebase into a typed, node-based ETL framework with faster runtimes.</li>
-              <li>Started as a data engineer on a spin-off team: web scraping at scale, data QA and
-                orchestration with Airflow over PostgreSQL and ClickHouse.</li>
+              <li>Built dedicated models for low-frequency customers: sparse-aware features plus
+                signals from similar customers, found via approximate nearest-neighbour search
+                (<strong>FAISS</strong>) over customer embeddings.</li>
+              <li>Added new signal sources (GA4 web analytics, promotion behaviour) and broadened
+                evaluation beyond error metrics with ranking measures (Spearman, capture@K) the
+                business could read directly.</li>
             </ul>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">Snowflake</span>
-              <span class="tag">Databricks</span><span class="tag">Spark</span><span class="tag">Airflow</span>
-              <span class="tag">ClickHouse</span><span class="tag">SQL</span>
+              <span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">FAISS</span>
+              <span class="tag">Snowflake</span><span class="tag">Spark</span><span class="tag">Databricks</span>
+              <span class="tag">SQL</span>
             </div>
+
+            <h4 class="sub">Onboarding · DataMarket <span class="aside">WhiteboxML spin-off</span> <span class="when">Sep – Nov 2025</span></h4>
+            <p>
+              Onboarding as a data engineer: web scraping at scale with Playwright, Camoufox and
+              rnet, data QA, and Airflow orchestration over PostgreSQL and ClickHouse.
+            </p>
           </div>
 
           <div class="item">
@@ -127,9 +155,8 @@
           </div>
         </section>
 
-        <section id="projects" class="panel">
-          <h2 class="eyebrow">Projects</h2>
-          <p class="lead">A mix of university, professional and personal work.</p>
+        <section id="panel-projects" class="panel" data-section="projects">
+          <h2 class="eyebrow" tabindex="-1">Projects</h2>
 
           <p class="group-label">AI / Machine Learning</p>
 
@@ -202,8 +229,8 @@
           </div>
         </section>
 
-        <section id="education" class="panel">
-          <h2 class="eyebrow">Education</h2>
+        <section id="panel-education" class="panel" data-section="education">
+          <h2 class="eyebrow" tabindex="-1">Education</h2>
 
           <div class="item">
             <h3>Computer Engineering · <span class="org">Universidad Autónoma de Madrid</span></h3>
